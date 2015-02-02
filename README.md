@@ -13,3 +13,15 @@ Suppose you already have a build pipeline for a repository 'github-project', you
 1. Add a Github PR material (it takes a github url + branch)
 2. Add a build stage and job with 'Github PR Build' Task
 3. Send PR and watch the pipeline build :-)
+
+## Configuration
+Sample `gocd-build.conf` would be something like
+
+```hocon
+gocd.build {
+  scripts = [
+    "mvn clean test -pl moduleA/ -am",
+    "mvn clean test -pl moduleB/ -am"
+  ]
+}
+```
