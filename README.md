@@ -2,7 +2,7 @@
 
 WIP
 
-This project should contain 2 projects.
+This repository should contain 2 projects.
 
 1. Github PR matierial poller - This is a straightforward material poller that pools for any pull requests on the github repo and triggers a build pipeline
 2. Github PR build task - Task plugin that does a checkout of the repo, merging the PR patch against the branch, builds the repo from 'gocd-build.conf' on the project root. It also replies back on the PR with the build status.
