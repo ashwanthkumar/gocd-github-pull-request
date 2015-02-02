@@ -1,27 +1,13 @@
-Go Plugin Samples:
-==================
-This is set of plugin samples to be used with Go-server.
-Samples are provided with the intention of helping a plugin developer kick-start in a faster way. This sample is a maven project.
+# GoCD - Github Integration
 
-From Go version 14.4.0 Plugin implementation has changed from API based plugin to JSON based plugin.
-While we recommend writing all new plugins using the JSON based extension, the older API based plugin implementation will continue to exist for a few more releases.
+WIP
 
-The sample implementation for JSON based extension can be found under 'curl-plugin' folder. However, if you want to refer to the old API based implementation, you can refer the folder under 'curl-plugin-old-api-based'.
+This project should contain 2 projects.
+1. Github PR matierial poller - This is a straightforward material poller that pools for any pull requests on the github repo and triggers a build pipeline
+2. Github PR build task - Task plugin that does a checkout of the repo, merging the PR patch against the branch, builds the repo from 'gocd-build.conf' on the project root. It also replies back on the PR with the build status.
 
-Following are steps to be followed to get started with the samples
-
-All Go plugins needed to depend on Go plugin API jar. To get started, get a copy of API jar and place it inside some folder.
-
-1. Sample plugins use maven for dependency resolution. The Go plugin API jar is now available through Maven central.
-
-2. Run mvn clean install - this would build the plugins. Jars would be available in the 'target' folder of individual modules.
-
-3. Copy these built jar files onto your Go Server's external plugins directory and restart the Go Server.
-
-4. The Plugins tab under the Go server Administration will list the plugins installed and you should see the installed samples in the list.
-
-5. You could open the project using the pom.xml in any IDE of your choice and play around with the code.
-   Note: Once Go plugin API is installed to maven repo, there should be no errors related to plugin API.
-
-For more information on building Go plugins, visit: http://www.go.cd/documentation/developer/writing_go_plugins/overview.html
-
+## Workflow
+Suppose you already have a build pipeline for a repository 'github-project', you might want to create another pipeline that builds all the pull requests.
+- Add a Github PR material (it takes a github url + branch)
+- Add a build stage and job with 'Github PR Build' Task
+- Send PR and watch the pipeline build
